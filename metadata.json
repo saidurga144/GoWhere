@@ -1,0 +1,8 @@
+
+{
+  "name": "GoWhere: Personalized Travel Discovery",
+  "description": "A smart travel recommendation engine that uses explicit preferences and AI-driven reasoning to find your perfect next destination or optimize your current plans.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

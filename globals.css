@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  /* Mobile & iOS optimizations */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Prevent zoom on input focus in iOS */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  select,
+  textarea {
+    font-size: 16px !important; /* iOS fix for zoom */
+    border-radius: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Disable tap highlight color */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Touch-friendly buttons */
+  button {
+    -webkit-appearance: none;
+    appearance: none;
+    min-height: 44px; /* iOS minimum touch target */
+    min-width: 44px;
+  }
+
+  /* Safe area support for notched devices */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.6%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.6%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 9.019%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.6%;
+    --radius: 0.5rem;
+    --primary: 0 0% 9.019%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9.019%;
+    --color-primary: 59 89% 51%;
+    --color-secondary: 280 85% 67%;
+    --color-chart-1: 12 76% 61%;
+    --color-chart-2: 173 58% 39%;
+    --color-chart-3: 197 89% 48%;
+    --color-chart-4: 43 74% 66%;
+    --color-chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.6%;
+    --foreground: 0 0% 98.2%;
+    --card: 0 0% 3.6%;
+    --card-foreground: 0 0% 98.2%;
+    --popover: 0 0% 3.6%;
+    --popover-foreground: 0 0% 98.2%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 98.2%;
+    --accent-foreground: 0 0% 9.019%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.9% 97.3%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --primary: 0 0% 98.2%;
+    --primary-foreground: 0 0% 9.019%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98.2%;
+    --color-primary: 259 100% 68%;
+    --color-secondary: 280 85% 67%;
+    --color-chart-1: 12 76% 61%;
+    --color-chart-2: 173 58% 39%;
+    --color-chart-3: 197 89% 48%;
+    --color-chart-4: 43 74% 66%;
+    --color-chart-5: 27 87% 67%;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .bg-background {
+    @apply bg-[hsl(var(--background))];
+  }
+  .text-foreground {
+    @apply text-[hsl(var(--foreground))];
+  }
+  .bg-card {
+    @apply bg-[hsl(var(--card))];
+  }
+  .text-card-foreground {
+    @apply text-[hsl(var(--card-foreground))];
+  }
+  .text-muted-foreground {
+    @apply text-[hsl(var(--muted-foreground))];
+  }
+  .bg-muted {
+    @apply bg-[hsl(var(--muted))];
+  }
+  .border-border {
+    @apply border-[hsl(var(--border))];
+  }
+  .text-destructive {
+    @apply text-[hsl(var(--destructive))];
+  }
+}
